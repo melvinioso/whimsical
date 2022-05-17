@@ -1,7 +1,7 @@
-import Button from '../components/Button';
+import Button from '../../components/Button';
 import { Video as VideoIcon } from '@styled-icons/entypo/Video';
 
-import { COLORS } from '../components/colors';
+import { COLORS } from '../../components/colors';
 
 export default {
   title: 'Button',

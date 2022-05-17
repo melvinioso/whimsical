@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import clsx from 'clsx';
 import { darken, lighten } from 'polished';
 
-import { marginHandler } from '../styles/marginHandler';
+import { marginHandler } from '../../styles/marginHandler';
 
-import { COLORS } from './colors';
+import { COLORS } from '../colors';
 
 function outlineFontColor(color: string) {
   if (!COLORS[color]) {
