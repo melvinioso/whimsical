@@ -6,16 +6,53 @@ import { marginHandler } from '../styles/marginHandler';
 
 import { COLORS } from './colors';
 
-// function textColor(color: string) {
-//   if (color === 'white' || 'smoke' || 'yellow') {
-//     return COLORS.black;
-//   } else {
-//     return COLORS.white;
-//   }
-// }
+function outlineFontColor(color: string) {
+  if (!COLORS[color]) {
+    return COLORS.gray;
+  }
+
+  if (color === 'white' || color === 'smoke') {
+    return COLORS.gray;
+  } else {
+    return COLORS[color];
+  }
+}
+
+function borderColor(color: string) {
+  if (!COLORS[color]) {
+    return `${lighten(0.125, COLORS.gray)}`;
+  }
+
+  if (color === 'white' || color === 'smoke') {
+    return `${lighten(0.125, COLORS.gray)}`;
+  } else {
+    return `${lighten(0.125, COLORS[color])}`;
+  }
+}
+
+function fontColor(color: string) {
+  if (!COLORS[color]) {
+    return COLORS.gray;
+  }
+
+  if (color === 'white' || color === 'smoke' || color === 'yellow') {
+    return COLORS.gray;
+  } else {
+    return COLORS.white;
+  }
+}
+
+function backgroundColor(color: string) {
+  if (!COLORS[color]) {
+    return COLORS.white;
+  }
+
+  return COLORS[color];
+}
 
 function _Button({
   className,
+  color,
   sm,
   md,
   lg,
@@ -56,19 +93,15 @@ function _Button({
 
 const Button = styled(_Button)`
   outline: none;
-  background-color: ${COLORS.white};
-  background-image: linear-gradient(
-    -180deg,
-    rgba(238, 244, 246, 0.85),
-    #eef4f6
-  );
+  background-color: ${({ color }) => backgroundColor(color)};
   font-size: 16px;
   padding: 0 1em;
   margin: 0;
-  color: ${COLORS.black};
-  font-weight: 600;9
+  color: ${({ color }) => fontColor(color)};
+  font-weight: 600;
   height: 36px;
   border-radius: 4px;
+  border: none;
   -webkit-user-select: none;
   white-space: nowrap;
   display: inline-flex;
@@ -77,18 +110,18 @@ const Button = styled(_Button)`
   cursor: pointer;
 
   &:hover {
-    color: ${COLORS.black} !important;
-    background-color: ${darken(0.05, COLORS.black)};
+    color: ${({ color }) => fontColor(color)} !important;
+    background-color: ${({ color }) => darken(0.05, COLORS[color])};
   }
 
   &.outline {
     background-color: transparent;
-    color: ${COLORS.black};
-    border: solid 1px ${COLORS.black};
+    color: ${({ color }) => outlineFontColor(color)};
+    border: solid 2px ${({ color }) => borderColor(color)};
 
     &:hover {
-      color: ${COLORS.black} !important;
-      background-color: ${lighten(0.125, COLORS.black)};
+      color: ${({ color }) => outlineFontColor(color)} !important;
+      background-color: ${darken(0.05, COLORS.white)};
     }
   }
 
@@ -106,58 +139,13 @@ const Button = styled(_Button)`
     }
   }
 
-  > svg:first-child {
-    margin-right: 0.7em;
-  }
-
-  > svg:last-child {
-    margin-left: 0.7em;
-  }
-
-  > svg:only-child {
-    margin: 0;
-  }
-
-  &.purple {
-    color: ${COLORS.white};
-    background-color: ${COLORS.purple};
-    background-image: none;
-    border: none;
-
-    &:hover {
-      color: ${COLORS.white} !important;
-      background-color: ${darken(0.05, COLORS.purple)};
-    }
-
-    &.outline {
-      background-color: transparent;
-      color: ${COLORS.purple};
-      border: solid 1px ${COLORS.purple};
-
-      &:hover {
-        color: ${COLORS.purple} !important;
-        background-color: ${darken(0.125, COLORS.white)};
-      }
-    }
-
-    &.link {
-      background: transparent;
-      color: ${COLORS.purple} !important;
-
-      &:hover {
-        color: ${COLORS.purple} !important;
-        text-decoration: underline;
-      }
-    }
-  }
-
   &.sm {
     height: 26px;
     font-size: 13px;
   }
 
   &.md {
-    height: 38px;
+    height: 36px;
     font-size: 16px;
   }
 
