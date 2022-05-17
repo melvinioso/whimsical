@@ -20,23 +20,23 @@ function outlineFontColor(color: string) {
 
 function borderColor(color: string) {
   if (!COLORS[color]) {
-    return `${lighten(0.125, COLORS.gray)}`;
+    return lighten(0.125, COLORS.gray);
   }
 
   if (color === 'white' || color === 'smoke') {
-    return `${lighten(0.125, COLORS.gray)}`;
+    return lighten(0.125, COLORS.gray);
   } else {
-    return `${lighten(0.125, COLORS[color])}`;
+    return lighten(0.125, COLORS[color]);
   }
 }
 
 function fontColor(color: string) {
   if (!COLORS[color]) {
-    return COLORS.gray;
+    return COLORS.black;
   }
 
   if (color === 'white' || color === 'smoke' || color === 'yellow') {
-    return COLORS.gray;
+    return COLORS.black;
   } else {
     return COLORS.white;
   }
@@ -111,7 +111,7 @@ const Button = styled(_Button)`
 
   &:hover {
     color: ${({ color }) => fontColor(color)} !important;
-    background-color: ${({ color }) => darken(0.05, COLORS[color])};
+    background-color: ${({ color }) => darken(0.05, backgroundColor(color))};
   }
 
   &.outline {
@@ -127,16 +127,30 @@ const Button = styled(_Button)`
 
   &:disabled {
     opacity: 0.4;
+    cursor: not-allowed;
   }
 
   &.link {
     background: transparent;
-    color: ${COLORS.black} !important;
+    color: ${({ color }) => outlineFontColor(color)} !important;
 
     &:hover {
-      color: ${COLORS.black} !important;
+      background: transparent;
+      color: ${({ color }) => outlineFontColor(color)} !important;
       text-decoration: underline;
     }
+  }
+
+  > svg:first-child {
+    margin-right: 0.7em;
+  }
+
+  > svg:last-child {
+    margin-left: 0.7em;
+  }
+
+  > svg:only-child {
+    margin: 0;
   }
 
   &.sm {
