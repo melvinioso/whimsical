@@ -44,10 +44,9 @@ export const Large = () => (
 export const Outline = () => {
   return Object.keys(COLORS).map((color, idx) => (
     <>
-    <Button key={idx} color={color} outline>
-      Button
-    </Button><br /><br />
-    
+      <Button key={idx} color={color} outline>
+        Button
+      </Button><br /><br />
     </>
   ));
 };
@@ -55,10 +54,9 @@ export const Outline = () => {
 export const Colors = () => {
   return Object.keys(COLORS).map((color, idx) => (
     <>
-    <Button key={idx} color={color}>
-      Button
-    </Button><br /><br />
-    
+      <Button key={idx} color={color}>
+        Button
+      </Button><br /><br />
     </>
   ));
 };
