@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import clsx from 'clsx';
 
-import { COLORS } from '../colors';
+import { colorHandler, backgroundHandler, marginHandler, paddingHandler, typographyHandler, radiusHandler } from '../../styles/handlers';
 
 import {
   colorHandler,
@@ -58,6 +58,7 @@ function _Text({
       {children}
     </Tag>
   );
+
 }
 
 const Text = styled(_Text)`
@@ -126,9 +127,9 @@ const Text = styled(_Text)`
 
   ${(p) => {
     let color;
-    Object.keys(COLORS).forEach((key) => {
+    Object.keys(p.theme.colors.whimsical).forEach((key) => {
       if (p[key]) {
-        color = COLORS[key];
+        color = p.theme.colors.whimsical[key];
       }
     });
 

@@ -43,14 +43,8 @@ export const kitchenSink = () => (
     <Text blue sm bold underline>
       My Text
     </Text>
-    <Component tagName="p">
-      This is a long paragraph of text. This is a long paragraph of text. This
-      is a long paragraph of text. This is a long paragraph of text.
-    </Component>
-    <Component tagName="p">
-      This is a long paragraph of text. This is a long paragraph of text. This
-      is a long paragraph of text. This is a long paragraph of text.
-    </Component>
+    <Component tagName="p">This is a long paragraph of text. This is a long paragraph of text. This is a long paragraph of text. This is a long paragraph of text.</Component>
+    <Component tagName="p">This is a long paragraph of text. This is a long paragraph of text. This is a long paragraph of text. This is a long paragraph of text.</Component>
     <Text bold purple underline>
       <p>Here is another way to handle the paragraph problem...</p>
       <p>Just put your p tag inside Text.</p>

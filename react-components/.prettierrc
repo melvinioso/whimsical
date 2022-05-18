@@ -2,7 +2,7 @@
   "tabWidth": 2,
   "useTabs": false,
   "trailingComma": "es5",
-  "printWidth": 80,
+  "printWidth": 500,
   "singleQuote": true,
   "overrides": [
     {
@@ -10,7 +10,7 @@
       "options": {
         "parser": "json",
         "tabWidth": 2,
-        "printWidth": 80
+        "printWidth": 500
       }
     },
     {
@@ -18,14 +18,14 @@
       "options": {
         "parser": "json",
         "tabWidth": 2,
-        "printWidth": 80
+        "printWidth": 500
       }
     },
     {
       "files": "*.json",
       "options": {
         "tabWidth": 2,
-        "printWidth": 80
+        "printWidth": 500
       }
     }
   ]
