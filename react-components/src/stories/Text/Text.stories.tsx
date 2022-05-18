@@ -12,10 +12,28 @@ function Text(props: any) {
   );
 }
 
+export const Sizes = () => (
+  <>
+    <Text xs slate>Extra Small</Text>
+    <Text sm blue>Small</Text>
+    <Text md indigo>Medium</Text>
+    <Text lg purple>Large</Text>
+    <Text xl pink>Extra Large</Text>
+    <Text xxl mint>Extra Extra Large</Text>
+    <Text xl3 green>Extra Large 3</Text>
+    <Text xl4 brown>Extra Large 4</Text>
+    <Text xl5 crimson>Extra Large 5</Text>
+    <Text xl6 red>Extra Large 6</Text>
+    <Text xl7 orange>Extra Large 7</Text>
+    <Text xl8 yellow>Extra Large 8</Text>
+  </>
+);
+
 export const kitchenSink = () => (
   <>
     <Text blue>My Text</Text>
-    <Text purple>My Text</Text>
+    <Text indigo>My Text</Text>
+    <Text lg bold mint bg-indigo>My Text</Text>
     <Text sm>My Text</Text>
     <Text>My Text</Text>
     <Text lg>My Text</Text>
