@@ -2,8 +2,8 @@ import { forEach } from 'lodash';
 
 import { DIRECTION_VALUES } from './constants';
 
-export function marginHandler(props: {}) {
-  const re = new RegExp('^margin([T|B|L|R]{1})?-([0-9]+)$');
+export function paddingHandler(props: {}) {
+  const re = new RegExp('^padding([T|B|L|R]{1})?-([0-9]+)$');
 
   const propsKeys = Object.keys(props).filter((key) => re.test(key));
 
@@ -24,7 +24,7 @@ export function marginHandler(props: {}) {
         return '';
       }
 
-      css += 'margin';
+      css += 'padding';
       css += direction ? `-${DIRECTION_VALUES[direction]}: ` : ': ';
       css += `${amount}px;\n`;
     }
