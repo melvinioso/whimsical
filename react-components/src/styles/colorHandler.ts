@@ -12,8 +12,7 @@ export function colorHandler(props: { theme?: any }) {
   let css = '';
 
   propsKeys.forEach((key) => {
-    const foundColor =
-      props.theme.colors.whimsical[key] || props.theme.colors[key];
+    const foundColor = props.theme.colors.whimsical[key] || props.theme.colors[key];
 
     if (foundColor) {
       css += `color: ${foundColor};`;

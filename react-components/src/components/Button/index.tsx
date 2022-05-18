@@ -1,84 +1,74 @@
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import clsx from 'clsx';
-import { darken, lighten } from 'polished';
+import { intersection } from 'lodash';
+import { darken } from 'polished';
 
-import { marginHandler } from '../../styles/marginHandler';
+import { marginHandler, paddingHandler } from '../../styles/handlers';
 
-import { COLORS } from '../colors';
+function handleButtonProps({ theme, ...props }: any) {
+  const themeKeys = Object.keys(theme.colors.whimsical);
+  const propsKeys = Object.keys(props);
+  const sharedKeys = intersection(themeKeys, propsKeys);
 
-function outlineFontColor(color: string) {
-  if (!COLORS[color]) {
-    return COLORS.gray;
+  const css = [];
+
+  if (props.outline) {
+    css.push(`color: ${theme.colors.whimsical.indigo};`);
+    css.push(`border-color: ${theme.colors.whimsical.indigo};`);
+    css.push(`background-color: transparent;`);
+    css.push(`&:hover { background-color: ${darken(0.05, theme.colors.whimsical.white)}; }`);
   }
 
-  if (color === 'white' || color === 'smoke') {
-    return COLORS.gray;
-  } else {
-    return COLORS[color];
+  if (props.link) {
+    css.push(`background-color: transparent;`);
+    css.push(`color: ${theme.colors.whimsical.indigo};`);
+    css.push(`&:hover { background-color: transparent; text-decoration: underline; }`);
   }
+
+  if (sharedKeys && sharedKeys.length) {
+    const lastKey = sharedKeys[sharedKeys.length - 1];
+    const color = theme.colors.whimsical[lastKey];
+
+    if (props.outline) {
+      css.push(`color: ${color};`);
+      css.push(`border-color: ${color};`);
+      css.push(`background-color: transparent;`);
+      css.push(`&:hover { background-color: ${darken(0.05, theme.colors.whimsical.white)}; }`);
+    } else if (props.link) {
+      css.push(`color: ${color};`);
+    } else {
+      css.push(`background-color: ${color};`);
+      css.push(`&:hover { background-color: ${darken(0.1, color)}; }`);
+    }
+
+    if (lastKey === 'white') {
+      css.push(`color: ${theme.colors.whimsical.indigo};`);
+    }
+  }
+
+  if (props.sm) {
+    css.push('font-size: 0.7rem;');
+  }
+
+  if (props.lg) {
+    css.push('font-size: 1.2rem;');
+    css.push('padding: 0.25rem 1.3rem;');
+  }
+
+  return css.join('\n');
 }
 
-function borderColor(color: string) {
-  if (!COLORS[color]) {
-    return lighten(0.125, COLORS.gray);
+function _Button({ className, onClick, children, style, disabled, href, type, target = '_blank' }: any, ref: any) {
+  if (href) {
+    return (
+      <a ref={(r) => (ref = r)} className={className} style={style} href={href} target={target}>
+        {children}
+      </a>
+    );
   }
 
-  if (color === 'white' || color === 'smoke') {
-    return lighten(0.125, COLORS.gray);
-  } else {
-    return lighten(0.125, COLORS[color]);
-  }
-}
-
-function fontColor(color: string) {
-  if (!COLORS[color]) {
-    return COLORS.black;
-  }
-
-  if (color === 'white' || color === 'smoke' || color === 'yellow') {
-    return COLORS.black;
-  } else {
-    return COLORS.white;
-  }
-}
-
-function backgroundColor(color: string) {
-  if (!COLORS[color]) {
-    return COLORS.white;
-  }
-
-  return COLORS[color];
-}
-
-function _Button({
-  className,
-  color,
-  sm,
-  md,
-  lg,
-  outline,
-  link,
-  type = 'submit',
-  style,
-  disabled,
-  children,
-  onClick,
-}: any) {
   return (
-    <button
-      type={type}
-      className={clsx(
-        className,
-        sm && 'sm',
-        md && 'md',
-        lg && 'lg',
-        outline && 'outline',
-        link && 'link'
-      )}
-      style={style}
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <button ref={ref} className={className} style={style} onClick={onClick} disabled={disabled} type={type}>
       {children instanceof Array && children.map
         ? children.map((child, i) => {
             if (typeof child === 'string') {
@@ -91,84 +81,49 @@ function _Button({
   );
 }
 
-const Button = styled(_Button)`
+const Button = styled(forwardRef(_Button))`
+  font-family: 'Assistant', sans-serif;
+  background: none;
   outline: none;
-  background-color: ${({ color }) => backgroundColor(color)};
-  font-size: 16px;
-  padding: 0 1em;
-  margin: 0;
-  color: ${({ color }) => fontColor(color)};
-  font-weight: 600;
-  height: 36px;
+  border: solid 1px transparent;
+  color: ${({ theme }) => theme.colors.whimsical.white};
   border-radius: 4px;
-  border: none;
-  -webkit-user-select: none;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.whimsical.indigo};
+  padding: 0.25rem 1rem;
+  font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 0.8rem;
 
   &:hover {
-    color: ${({ color }) => fontColor(color)} !important;
-    background-color: ${({ color }) => darken(0.05, backgroundColor(color))};
+    background-color: ${({ theme }) => darken(0.1, theme.colors.whimsical.indigo)};
   }
 
-  &.outline {
-    background-color: transparent;
-    color: ${({ color }) => outlineFontColor(color)};
-    border: solid 2px ${({ color }) => borderColor(color)};
-
-    &:hover {
-      color: ${({ color }) => outlineFontColor(color)} !important;
-      background-color: ${darken(0.05, COLORS.white)};
-    }
-  }
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
 
-  &.link {
-    background: transparent;
-    color: ${({ color }) => outlineFontColor(color)} !important;
-
-    &:hover {
-      background: transparent;
-      color: ${({ color }) => outlineFontColor(color)} !important;
-      text-decoration: underline;
-    }
+  > * {
+    margin: 0 0.35rem;
   }
 
-  > svg:first-child {
-    margin-right: 0.7em;
+  > :first-child {
+    margin-left: 0;
   }
 
-  > svg:last-child {
-    margin-left: 0.7em;
+  > :last-child {
+    margin-right: 0;
   }
 
-  > svg:only-child {
-    margin: 0;
-  }
-
-  &.sm {
-    height: 26px;
-    font-size: 13px;
-  }
-
-  &.md {
-    height: 36px;
-    font-size: 16px;
-  }
-
-  &.lg {
-    height: 50px;
-    font-size: 20px;
-  }
-
+  ${(props) => handleButtonProps(props)}
   ${(props) => marginHandler(props)}
+  ${(props) => paddingHandler(props)}
 `;
 
 export default Button;
