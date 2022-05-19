@@ -16,13 +16,20 @@ function handleButtonProps({ theme, ...props }: any) {
     css.push(`color: ${theme.colors.whimsical.indigo};`);
     css.push(`border-color: ${theme.colors.whimsical.indigo};`);
     css.push(`background-color: transparent;`);
-    css.push(`&:hover { background-color: ${darken(0.05, theme.colors.whimsical.white)}; }`);
+    css.push(
+      `&:hover { background-color: ${darken(
+        0.05,
+        theme.colors.whimsical.white
+      )}; }`
+    );
   }
 
   if (props.link) {
     css.push(`background-color: transparent;`);
     css.push(`color: ${theme.colors.whimsical.indigo};`);
-    css.push(`&:hover { background-color: transparent; text-decoration: underline; }`);
+    css.push(
+      `&:hover { background-color: transparent; text-decoration: underline; }`
+    );
   }
 
   if (sharedKeys && sharedKeys.length) {
@@ -33,7 +40,12 @@ function handleButtonProps({ theme, ...props }: any) {
       css.push(`color: ${color};`);
       css.push(`border-color: ${color};`);
       css.push(`background-color: transparent;`);
-      css.push(`&:hover { background-color: ${darken(0.05, theme.colors.whimsical.white)}; }`);
+      css.push(
+        `&:hover { background-color: ${darken(
+          0.05,
+          theme.colors.whimsical.white
+        )}; }`
+      );
     } else if (props.link) {
       css.push(`color: ${color};`);
     } else {
@@ -58,17 +70,42 @@ function handleButtonProps({ theme, ...props }: any) {
   return css.join('\n');
 }
 
-function _Button({ className, onClick, children, style, disabled, href, type, target = '_blank' }: any, ref: any) {
+function _Button(
+  {
+    className,
+    onClick,
+    children,
+    style,
+    disabled,
+    href,
+    type,
+    target = '_blank',
+  }: any,
+  ref: any
+) {
   if (href) {
     return (
-      <a ref={(r) => (ref = r)} className={className} style={style} href={href} target={target}>
+      <a
+        ref={(r) => (ref = r)}
+        className={className}
+        style={style}
+        href={href}
+        target={target}
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <button ref={ref} className={className} style={style} onClick={onClick} disabled={disabled} type={type}>
+    <button
+      ref={ref}
+      className={className}
+      style={style}
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
+    >
       {children instanceof Array && children.map
         ? children.map((child, i) => {
             if (typeof child === 'string') {
@@ -96,7 +133,8 @@ const Button = styled(forwardRef(_Button))`
   font-size: 0.8rem;
 
   &:hover {
-    background-color: ${({ theme }) => darken(0.1, theme.colors.whimsical.indigo)};
+    background-color: ${({ theme }) =>
+      darken(0.1, theme.colors.whimsical.indigo)};
   }
 
   display: inline-flex;

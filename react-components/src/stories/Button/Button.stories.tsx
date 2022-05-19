@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import _Button from '../../components/Button';
 
-import theme, { colorNames } from '../../styles/theme';
+import theme from '../../styles/theme';
 
 export default {
   title: 'Button',
@@ -25,6 +24,7 @@ const Container = styled.div`
 
 const COLORS = Object.keys(theme.colors.whimsical);
 
+// prettier-ignore
 export const basic = () => {
   return (
     <Container>
@@ -113,6 +113,7 @@ export const basic = () => {
   );
 };
 
+// prettier-ignore
 export const outline = () => {
   return (
     <Container>
@@ -201,6 +202,7 @@ export const outline = () => {
   );
 };
 
+// prettier-ignore
 export const link = () => {
   return (
     <Container>

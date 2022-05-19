@@ -16,7 +16,8 @@ export function backgroundHandler(props: { theme?: any }) {
   if (res && res[1]) {
     const color = res[1];
 
-    const foundColor = props.theme.colors.whimsical[color] || props.theme.colors[color];
+    const foundColor =
+      props.theme.colors.whimsical[color] || props.theme.colors[color];
 
     if (foundColor) {
       return `background-color: ${foundColor};`;

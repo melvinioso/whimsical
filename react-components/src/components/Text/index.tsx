@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import clsx from 'clsx';
 
-import { colorHandler, backgroundHandler, marginHandler, paddingHandler, typographyHandler, radiusHandler } from '../../styles/handlers';
-
 import {
   colorHandler,
   backgroundHandler,
@@ -58,13 +56,12 @@ function _Text({
       {children}
     </Tag>
   );
-
 }
 
 const Text = styled(_Text)`
   font-family: Arial, sans-serif;
   font-size: 1rem;
-  
+
   &.bold {
     font-weight: 700;
   }

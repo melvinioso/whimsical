@@ -12,6 +12,7 @@ function Text(props: any) {
   );
 }
 
+// prettier-ignore
 export const Sizes = () => (
   <>
     <Text xs slate>Extra Small</Text>
@@ -29,6 +30,7 @@ export const Sizes = () => (
   </>
 );
 
+// prettier-ignore
 export const kitchenSink = () => (
   <>
     <Text blue>My Text</Text>
