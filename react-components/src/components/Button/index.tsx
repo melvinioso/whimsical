@@ -129,7 +129,7 @@ const Button = styled(forwardRef(_Button))`
   text-decoration: none;
   background: none;
   outline: none;
-  border: solid 1px transparent;
+  border: solid 2px transparent;
   border-radius: 4px;
   height: 40px;
   padding: 0 1em;
