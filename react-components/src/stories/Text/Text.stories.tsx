@@ -1,6 +1,6 @@
 import Component from '../../components/Text';
 
-export default { title: 'Text' };
+export default { title: 'Whimsical Components/Text' };
 
 function Text(props: any) {
   return (

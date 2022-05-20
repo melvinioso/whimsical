@@ -35,10 +35,17 @@ function handleButtonProps({ theme, ...props }: any) {
   if (sharedKeys && sharedKeys.length) {
     const lastKey = sharedKeys[sharedKeys.length - 1];
     const color = theme.colors.whimsical[lastKey];
+    const outlineFontColor = ['white', 'smoke'].includes(lastKey)
+      ? theme.colors.whimsical.gray
+      : theme.colors.whimsical[lastKey];
+
+    if (['white', 'smoke', 'yellow'].includes(lastKey)) {
+      css.push(`color: ${theme.colors.whimsical.black};`);
+    }
 
     if (props.outline) {
-      css.push(`color: ${color};`);
-      css.push(`border-color: ${color};`);
+      css.push(`color: ${outlineFontColor};`);
+      css.push(`border-color: ${outlineFontColor};`);
       css.push(`background-color: transparent;`);
       css.push(
         `&:hover { background-color: ${darken(
@@ -47,24 +54,21 @@ function handleButtonProps({ theme, ...props }: any) {
         )}; }`
       );
     } else if (props.link) {
-      css.push(`color: ${color};`);
+      css.push(`color: ${outlineFontColor};`);
     } else {
       css.push(`background-color: ${color};`);
       css.push(`&:hover { background-color: ${darken(0.1, color)}; }`);
     }
-
-    if (lastKey === 'white') {
-      css.push(`color: ${theme.colors.whimsical.indigo};`);
-    }
   }
 
   if (props.sm) {
-    css.push('font-size: 0.7rem;');
+    css.push('height: 32px;');
+    css.push('font-size: 0.75rem;');
   }
 
   if (props.lg) {
-    css.push('font-size: 1.2rem;');
-    css.push('padding: 0.25rem 1.3rem;');
+    css.push('height: 48px;');
+    css.push('font-size: 1.25rem;');
   }
 
   return css.join('\n');
@@ -120,27 +124,27 @@ function _Button(
 
 const Button = styled(forwardRef(_Button))`
   font-family: 'Assistant', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
   background: none;
   outline: none;
   border: solid 1px transparent;
-  color: ${({ theme }) => theme.colors.whimsical.white};
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.whimsical.indigo};
-  padding: 0.25rem 1rem;
-  font-weight: 600;
+  height: 40px;
+  padding: 0 1em;
   cursor: pointer;
-  text-decoration: none;
-  font-size: 0.8rem;
+  color: ${({ theme }) => theme.colors.whimsical.white};
+  background-color: ${({ theme }) => theme.colors.whimsical.indigo};
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 
   &:hover {
     background-color: ${({ theme }) =>
       darken(0.1, theme.colors.whimsical.indigo)};
   }
-
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
 
   &:disabled {
     opacity: 0.4;

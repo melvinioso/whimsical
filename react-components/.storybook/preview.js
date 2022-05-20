@@ -14,3 +14,11 @@ export const decorators = [
     </>
   ),
 ];
+
+export const parameters = {
+  options: {
+    storySort: {
+      order: ['Button', ['Basic', 'Outline', 'Link', 'Disabled'], 'Text'],
+    },
+  },
+};
