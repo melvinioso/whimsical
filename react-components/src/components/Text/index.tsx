@@ -28,6 +28,9 @@ function _Text({
   bold,
   underline,
   italics,
+  left,
+  center,
+  right,
   tagName = 'span',
 }: any) {
   const Tag = tagName;
@@ -50,7 +53,10 @@ function _Text({
         xl8 && 'xl8',
         bold && 'bold',
         underline && 'underline',
-        italics && 'italics'
+        italics && 'italics',
+        left && 'left',
+        center && 'center',
+        right && 'right',
       )}
     >
       {children}
@@ -120,6 +126,21 @@ const Text = styled(_Text)`
 
   &.xl8 {
     font-size: 12rem;
+  }
+
+  &.left {
+    text-align: left;
+    display: block;
+  }
+
+  &.center {
+    text-align: center;
+    display: block;
+  }
+
+  &.right {
+    text-align: right;
+    display: block;
   }
 
   ${(p) => {
