@@ -12,18 +12,16 @@ const Button = styled(_Button)`
   margin-right: 10px;
 `;
 
-// prettier-ignore
 export const basic = () => (
-  <div>
+  <>
     <Button>Button</Button>
     <Button outline>Button</Button>
     <Button link>Button</Button>
-  </div>
+  </>
 );
 
-// prettier-ignore
 export const colors = () => (
-  <div>
+  <>
     <Button white>White</Button>
     <Button black>Black</Button>
     <Button smoke>Smoke</Button>
@@ -40,7 +38,7 @@ export const colors = () => (
     <Button red>Red</Button>
     <Button orange>Orange</Button>
     <Button yellow>Yellow</Button>
-  </div>
+  </>
 );
 
 // prettier-ignore
@@ -82,9 +80,9 @@ export const withIcons = () => (
 
 // prettier-ignore
 export const disabled = () => (
-  <div>
+  <>
     <Button disabled>Button</Button>
     <Button disabled outline>Button</Button>
     <Button disabled link>Button</Button>
-  </div>
+  </>
 );

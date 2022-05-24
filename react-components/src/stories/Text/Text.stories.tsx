@@ -21,14 +21,8 @@ const Container = styled.div`
   background-color: ${theme.colors.whimsical.gray};
 `;
 
-// prettier-ignore
-export const basic = () => (
-  <>
-    <Text>This is some text.</Text>
-  </>
-);
+export const basic = () => <Text>This is some text.</Text>;
 
-// prettier-ignore
 export const Sizes = () => (
   <>
     <Text xs>Extra Small</Text>
@@ -46,7 +40,6 @@ export const Sizes = () => (
   </>
 );
 
-// prettier-ignore
 export const colors = () => (
   <>
     <Text white>White</Text>
@@ -68,7 +61,6 @@ export const colors = () => (
   </>
 );
 
-// prettier-ignore
 export const typography = () => (
   <>
     <Text bold>This is some bold text.</Text>

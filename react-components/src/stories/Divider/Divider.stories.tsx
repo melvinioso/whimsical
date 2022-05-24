@@ -4,28 +4,17 @@ export default { title: 'Whimsical Components/Divider' };
 
 function Divider(props: any) {
   return (
-    <div>
+    <div style={{ width: '50%' }}>
       <Component {...props} />
       <br />
     </div>
   );
 }
 
-// prettier-ignore
-export const basic = () => (
-  <>
-    <Divider />
-  </>
-);
+export const basic = () => <Divider />;
 
-// prettier-ignore
-export const dashed = () => (
-  <>
-    <Divider dashed />
-  </>
-);
+export const dashed = () => <Divider dashed />;
 
-// prettier-ignore
 export const colors = () => (
   <>
     <Divider white />
