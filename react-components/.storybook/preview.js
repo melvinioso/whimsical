@@ -16,10 +16,10 @@ export const decorators = [
 ];
 
 // need to figure out sorting
-// export const parameters = {
-//   options: {
-//     storySort: {
-//       order: ['Button', ['Basic', 'Outline', 'Link', 'Disabled'], 'Text'],
-//     },
-//   },
-// };
+export const parameters = {
+  options: {
+    storySort: {
+      order: ['Button', ['Basic', 'Disabled', 'Colors', 'Sizes', 'With Icons'], 'Text', 'Divider'],
+    },
+  },
+};

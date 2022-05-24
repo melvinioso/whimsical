@@ -42,7 +42,14 @@ export const Sizes = () => (
 
 export const colors = () => (
   <>
-    <Text white>White</Text>
+    <div
+      style={{
+        backgroundColor: `${theme.colors.whimsical.gray}`,
+        width: 'fit-content',
+      }}
+    >
+      <Text white>White</Text>
+    </div>
     <Text black>Black</Text>
     <Text smoke>Smoke</Text>
     <Text gray>Gray</Text>

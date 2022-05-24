@@ -7,6 +7,19 @@ export default {
   title: 'Whimsical Components/Button',
 };
 
+const Container = styled.div`
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const Button = styled(_Button)`
   margin-bottom: 10px;
   margin-right: 10px;
@@ -20,25 +33,90 @@ export const basic = () => (
   </>
 );
 
+// prettier-ignore
 export const colors = () => (
-  <>
-    <Button white>White</Button>
-    <Button black>Black</Button>
-    <Button smoke>Smoke</Button>
-    <Button gray>Gray</Button>
-    <Button slate>Slate</Button>
-    <Button blue>Blue</Button>
-    <Button indigo>Indigo</Button>
-    <Button purple>Purple</Button>
-    <Button pink>Pink</Button>
-    <Button mint>Mint</Button>
-    <Button green>Green</Button>
-    <Button brown>Brown</Button>
-    <Button crimson>Crimson</Button>
-    <Button red>Red</Button>
-    <Button orange>Orange</Button>
-    <Button yellow>Yellow</Button>
-  </>
+  <Container>
+    <Row>
+      <Button indigo>Indigo</Button>
+      <Button outline indigo>Indigo</Button>
+      <Button link indigo>Indigo</Button>
+    </Row>
+    <Row>
+      <Button white>White</Button>
+      <Button outline white>White</Button>
+      <Button link white>White</Button>
+    </Row>
+    <Row>
+      <Button black>Black</Button>
+      <Button outline black>Black</Button>
+      <Button link black>Black</Button>
+    </Row>
+    <Row>
+      <Button smoke>Smoke</Button>
+      <Button outline smoke>Smoke</Button>
+      <Button link smoke>Smoke</Button>
+    </Row>
+    <Row>
+      <Button gray>Gray</Button>
+      <Button outline gray>Gray</Button>
+      <Button link gray>Gray</Button>
+    </Row>
+    <Row>
+      <Button slate>Slate</Button>
+      <Button outline slate>Slate</Button>
+      <Button link slate>Slate</Button>
+    </Row>
+    <Row>
+      <Button blue>Blue</Button>
+      <Button outline blue>Blue</Button>
+      <Button link blue>Blue</Button>
+    </Row>
+    <Row>
+      <Button purple>Purple</Button>
+      <Button outline purple>Purple</Button>
+      <Button link purple>Purple</Button>
+    </Row>
+    <Row>
+      <Button pink>Pink</Button>
+      <Button outline pink>Pink</Button>
+      <Button link pink>Pink</Button>
+    </Row>
+    <Row>
+      <Button mint>Mint</Button>
+      <Button outline mint>Mint</Button>
+      <Button link mint>Mint</Button>
+    </Row>
+    <Row>
+      <Button green>Green</Button>
+      <Button outline green>Green</Button>
+      <Button link green>Green</Button>
+    </Row>
+    <Row>
+      <Button brown>Brown</Button>
+      <Button outline brown>Brown</Button>
+      <Button link brown>Brown</Button>
+    </Row>
+    <Row>
+      <Button crimson>Crimson</Button>
+      <Button outline crimson>Crimson</Button>
+      <Button link crimson>Crimson</Button>
+    </Row>
+    <Row>
+      <Button red>Red</Button>
+      <Button outline red>Red</Button>
+      <Button link red>Red</Button>
+    </Row>
+    <Row>
+      <Button orange>Orange</Button>
+      <Button outline orange>Orange</Button>
+      <Button link orange>Orange</Button>
+    </Row>
+    <Row>
+      <Button yellow>Yellow</Button>
+      <Button outline yellow>Yellow</Button>
+      <Button link yellow>Yellow</Button>
+    </Row>
+  </Container>
 );
 
 // prettier-ignore
