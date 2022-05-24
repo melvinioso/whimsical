@@ -82,20 +82,3 @@ export const disabled = () => (
     <TextInput id="input" name="input" label="Input" disabled />
   </Container>
 );
-
-// export const number = () => (
-//   <Container>
-//     <TextInput id="firstName" name="firstName" label="Number" type="number" />
-//   </Container>
-// );
-
-// export const password = () => (
-//   <Container>
-//     <TextInput
-//       id="firstName"
-//       name="firstName"
-//       label="Password"
-//       type="password"
-//     />
-//   </Container>
-// );
