@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import TextInput from '../../components/Inputs/Text';
+import TextInput from '../../components/Inputs/TextInput';
 
-export default { title: 'Whimsical Components/Inputs/TextInput' };
+export default { title: 'Whimsical Components/Inputs/Text Input' };
 
 const Container = styled.div`
   width: 380px;
@@ -20,17 +20,17 @@ export const normal = () => (
 
 export const label = () => (
   <Container>
-    <TextInput id="firstName" name="firstName" label="First Name" />
+    <TextInput id="input" name="input" label="Input" />
   </Container>
 );
 
 export const placeholder = () => (
   <Container>
     <TextInput
-      id="firstName"
-      name="firstName"
-      label="First Name"
-      placeholder="Bob Jones"
+      id="input"
+      name="input"
+      label="Input"
+      placeholder="Placeholder"
     />
   </Container>
 );
@@ -48,8 +48,8 @@ export const sizes = () => (
     </Row>
     <Row>
       <TextInput
-        id="input"
-        name="input"
+        id="default"
+        name="default"
         placeholder="Default"
         label="Default"
       />

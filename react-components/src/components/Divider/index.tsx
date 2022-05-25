@@ -36,12 +36,12 @@ const Divider = styled(_Divider)`
     } else {
       return `
         hr {
-          border-top: 3px solid ${theme.colors.whimsical.purple};
+          border-top: 3px solid ${theme.colors.whimsical.gray};
         }
       
         &.dashed {
           hr {
-            border-top: 3px dashed ${theme.colors.whimsical.purple};
+            border-top: 3px dashed ${theme.colors.whimsical.gray};
           }
         }
       `;

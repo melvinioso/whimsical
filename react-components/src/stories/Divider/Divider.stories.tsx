@@ -17,10 +17,10 @@ export const dashed = () => <Divider dashed />;
 
 export const colors = () => (
   <>
+    <Divider gray />
     <Divider white />
     <Divider black />
     <Divider smoke />
-    <Divider gray />
     <Divider slate />
     <Divider blue />
     <Divider indigo />
