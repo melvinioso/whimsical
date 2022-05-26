@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import TextInput from '../../components/Inputs/TextInput';
+import TextAreaInput from '../../components/Inputs/TextAreaInput';
 
-export default { title: 'Whimsical Components/Inputs/Text Input' };
+export default { title: 'Whimsical Components/Inputs/Text Area Input' };
 
 const Container = styled.div`
   width: 380px;
@@ -14,23 +14,23 @@ const Row = styled.div`
 
 export const normal = () => (
   <Container>
-    <TextInput id="firstName" name="firstName" />
+    <TextAreaInput id="notes" name="notes" />
   </Container>
 );
 
 export const label = () => (
   <Container>
-    <TextInput id="firstName" name="firstName" label="First Name" />
+    <TextAreaInput id="notes" name="notes" label="Notes" />
   </Container>
 );
 
 export const placeholder = () => (
   <Container>
-    <TextInput
-      id="firstName"
-      name="firstName"
-      label="First Name"
-      placeholder="Bob Jones"
+    <TextAreaInput
+      id="notes"
+      name="notes"
+      label="Notes"
+      placeholder="Notes"
     />
   </Container>
 );
@@ -38,7 +38,7 @@ export const placeholder = () => (
 export const sizes = () => (
   <Container>
     <Row>
-      <TextInput
+      <TextAreaInput
         id="small"
         name="small"
         placeholder="Small"
@@ -47,7 +47,7 @@ export const sizes = () => (
       />
     </Row>
     <Row>
-      <TextInput
+      <TextAreaInput
         id="default"
         name="default"
         placeholder="Default"
@@ -55,7 +55,7 @@ export const sizes = () => (
       />
     </Row>
     <Row>
-      <TextInput
+      <TextAreaInput
         id="large"
         name="large"
         placeholder="Large"
@@ -68,17 +68,17 @@ export const sizes = () => (
 
 export const error = () => (
   <Container>
-    <TextInput
-      id="firstName"
-      name="firstName"
-      label="First Name"
-      error={{ message: 'First name is required' }}
+    <TextAreaInput
+      id="notes"
+      name="notes"
+      label="Notes"
+      error={{ message: 'Notes are required' }}
     />
   </Container>
 );
 
 export const disabled = () => (
   <Container>
-    <TextInput id="firstName" name="firstName" label="First Name" disabled />
+    <TextAreaInput id="notes" name="notes" label="Notes" disabled />
   </Container>
 );

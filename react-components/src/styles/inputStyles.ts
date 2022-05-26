@@ -9,7 +9,6 @@ export default css`
   font-family: 'Assistant', sans-serif;
   font-size: 1rem;
   box-sizing: border-box;
-  height: 40px;
   width: 100%;
 
   ::placeholder {
