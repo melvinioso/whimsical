@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { FaSearch } from 'react-icons/fa';
 
 import TextInput from '../../components/Inputs/TextInput';
+
+import theme from '../../styles/theme';
 
 export default { title: 'Whimsical Components/Inputs/Text Input' };
 
@@ -80,5 +83,66 @@ export const error = () => (
 export const disabled = () => (
   <Container>
     <TextInput id="firstName" name="firstName" label="First Name" disabled />
+  </Container>
+);
+
+// prettier-ignore
+export const icons = () => (
+  <Container>
+    <Row>
+      <TextInput
+        id="search"
+        name="search"
+        label="Small"
+        icon={<FaSearch color={theme.colors.whimsical.red} />}
+        small
+      />
+    </Row>
+    <Row>
+      <TextInput
+        id="search"
+        name="search"
+        label="Default"
+        icon={<FaSearch color={theme.colors.whimsical.red} />}
+      />
+    </Row>
+    <Row>
+      <TextInput
+        id="search"
+        name="search"
+        label="Large"
+        icon={<FaSearch color={theme.colors.whimsical.red} />}
+        large
+      />
+    </Row>
+    <Row>
+      <TextInput
+        id="search"
+        name="search"
+        label="Small"
+        icon={<FaSearch color={theme.colors.whimsical.blue}/>}
+        iconPosition="right"
+        small
+      />
+    </Row>
+    <Row>
+      <TextInput
+        id="search"
+        name="search"
+        label="Default"
+        icon={<FaSearch color={theme.colors.whimsical.blue} />}
+        iconPosition="right"
+      />
+    </Row>
+    <Row>
+      <TextInput
+        id="search"
+        name="search"
+        label="Large"
+        icon={<FaSearch color={theme.colors.whimsical.blue} />}
+        iconPosition="right"
+        large
+      />
+    </Row>
   </Container>
 );

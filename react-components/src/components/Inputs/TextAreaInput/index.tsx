@@ -8,7 +8,7 @@ import inputStyles from '../../../styles/inputStyles';
 import { marginHandler } from '../../../styles/handlers';
 
 function _TextAreaInput(
-  { className, label, error, small, large, ...props }: any,
+  { className, label, error, small, large, icon, iconPosition, ...props }: any,
   ref: React.LegacyRef<HTMLInputElement> | undefined
 ) {
   return (
@@ -22,6 +22,7 @@ function _TextAreaInput(
     >
       <label htmlFor={props.id || props.name}>{label}</label>
       <textarea ref={ref} {...props} />
+      {icon ? <span className="icon">{icon}</span> : null}
       {error ? (
         <Error red marginT-7 marginL-5>
           {error.message}
@@ -32,6 +33,8 @@ function _TextAreaInput(
 }
 
 const TextAreaInput = styled(React.forwardRef(_TextAreaInput))`
+  position: relative;
+
   label {
     font-family: 'Lato', sans-serif;
     font-size: 0.9rem;
@@ -44,20 +47,79 @@ const TextAreaInput = styled(React.forwardRef(_TextAreaInput))`
 
   textarea {
     ${inputStyles}
+
+    ${({ icon, iconPosition }) => {
+      if (!icon) {
+        return '';
+      }
+
+      if (iconPosition === 'right') {
+        return 'padding-right: 30px;';
+      }
+
+      return 'padding-left: 30px;';
+    }}
+  }
+
+  .icon {
+    position: absolute;
+
+    ${({ iconPosition }) => {
+      let css = ['top: 50%;', 'transform: translateY(-50%);'];
+      if (iconPosition === 'right') {
+        css.push('right: 10px;');
+      } else {
+        css.push('left: 10px;');
+      }
+
+      return css.join('\n');
+    }}
   }
 
   &.small {
-    textarea {
-      font-size: 0.8rem;
-    }
-
     label {
       font-size: 0.7rem;
+    }
+
+    textarea {
+      font-size: 0.8rem;
+
+      ${({ icon, iconPosition }) => {
+        if (!icon) {
+          return '';
+        }
+
+        if (iconPosition === 'right') {
+          return 'padding-right: 26px;';
+        }
+
+        return 'padding-left: 26px;';
+      }}
+    }
+
+    .icon {
+      font-size: 0.8rem;
     }
   }
 
   &.large {
     textarea {
+      font-size: 1.2rem;
+
+      ${({ icon, iconPosition }) => {
+        if (!icon) {
+          return '';
+        }
+
+        if (iconPosition === 'right') {
+          return 'padding-right: 34px;';
+        }
+
+        return 'padding-left: 34px;';
+      }}
+    }
+
+    .icon {
       font-size: 1.2rem;
     }
   }
