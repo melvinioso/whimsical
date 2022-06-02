@@ -7,7 +7,12 @@ import Error from '../Error';
 export function Option({ groupName, name, value, register }: any) {
   return (
     <div>
-      <input name={groupName} type="radio" value={value} ref={register} />
+      <input
+        name={groupName}
+        {...register(groupName)}
+        type="radio"
+        value={value}
+      />
       <span></span>
       <label className="option-label">{name}</label>
     </div>
@@ -20,14 +25,10 @@ function _RadioButton({
   label,
   small,
   large,
-  register,
+  register = () => ({ ref: null }),
   children,
   error,
 }: any) {
-  // if (!register) {
-  //   return null;
-  // }
-
   const childrenOverride = Children.map(children, (child) => {
     if (!isValidElement(child)) {
       return child;

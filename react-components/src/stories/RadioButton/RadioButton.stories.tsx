@@ -61,11 +61,10 @@ export const Sizes = () => (
 );
 
 export const reactHookForm = () => {
-  const schema = yup
-    .object({
-      size: yup.string().required('Size is required'),
-    })
-    .required();
+  const schema = yup.object().shape({
+    // Because it's an optionGroup .typeError() is hit before .required()
+    size: yup.string().typeError('Size is required'),
+  });
 
   const {
     register,
@@ -83,7 +82,8 @@ export const reactHookForm = () => {
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
         <RadioButton
-          {...register('size')}
+          name="size"
+          register={register}
           label="Size"
           error={get(errors, 'size')}
         >
