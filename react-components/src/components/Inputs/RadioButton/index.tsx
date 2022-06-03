@@ -72,7 +72,7 @@ const RadioButton = styled(_RadioButton)`
     position: relative;
 
     input {
-      margin-right: 20px;
+      margin-right: 15px;
       z-index: 9999;
       opacity: 0;
       cursor: pointer;
