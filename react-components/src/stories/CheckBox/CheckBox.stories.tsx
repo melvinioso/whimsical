@@ -60,7 +60,7 @@ export const Sizes = () => (
   </Container>
 );
 
-export const reactHookForm = () => {
+export const ReactHookForm = () => {
   const schema = yup.object().shape({
     options: yup.array().required('Please select at least one option'),
   });

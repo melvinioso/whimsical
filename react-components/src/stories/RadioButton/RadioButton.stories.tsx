@@ -60,7 +60,7 @@ export const Sizes = () => (
   </Container>
 );
 
-export const reactHookForm = () => {
+export const ReactHookForm = () => {
   const schema = yup.object().shape({
     // Because it's an optionGroup .typeError() is hit before .required()
     size: yup.string().typeError('Size is required'),
